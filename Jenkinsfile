@@ -1,15 +1,15 @@
-/* import shared library. */
-@Library('chocoapp-slack-share-library')_
+/* import shared library */
+@Library('brunel-shared-library')_
 
 pipeline {
     environment {
-        IMAGE_NAME = "staticwebsite"
+        IMAGE_NAME = "my_static_website"
         APP_CONTAINER_PORT = "5000"
         APP_EXPOSED_PORT = "80"
         IMAGE_TAG = "latest"
-        STAGING = "chocoapp-jenkins-staging"
-        PRODUCTION = "chocoapp-jenkins-prod"
-        DOCKERHUB_ID = "choco1992"
+        STAGING = "myapp-jenkins-staging"
+        PRODUCTION = "myapp-jenkins-prod"
+        DOCKERHUB_ID = "brunel242"
         DOCKERHUB_PASSWORD = credentials('dockerhub_password')
     }
     agent none
@@ -40,7 +40,7 @@ pipeline {
            steps {
               script {
                 sh '''
-                   curl 172.28.128.123 | grep -i "Dimension"
+                   curl http://172.17.0.1 | grep -i "Dimension"
                 '''
               }
            }
