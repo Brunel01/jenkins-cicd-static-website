@@ -9,8 +9,7 @@ pipeline {
         IMAGE_TAG = "latest"
         STAGING = "myapp-jenkins-staging"
         PRODUCTION = "myapp-jenkins-prod"
-        DOCKERHUB_ID = "brunel242"
-        DOCKERHUB_PASSWORD = credentials('dockerhub_password')
+       
     }
     agent none
     stages {
